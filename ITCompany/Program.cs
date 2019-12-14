@@ -23,16 +23,16 @@ namespace ITCompany
             programmer1.DoWork(programmer1);
             programmer2.DoWork(programmer1);
             Console.WriteLine(itDepartment);
-            printDepartmen(itDepartment);
+            PrintDepartmen(itDepartment);
             Console.WriteLine("Deleting employee...");
             manager1.Fire(itDepartment, programmer2);
-            printDepartmen(itDepartment);
+            PrintDepartmen(itDepartment);
             Console.Write(company);
             Console.ReadKey();
 
         }
 
-        private static void printDepartmen(Department itDepartment)
+        private static void PrintDepartmen(Department itDepartment)
         {
             for (int i = 0; i < itDepartment.NumberEmploees; i++)
             {
