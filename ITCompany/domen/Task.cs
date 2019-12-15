@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    class Task
+    class Task:ICloneable,IPrintable,IStorable
     {
+        
         public string Title { get; set; }
         public string Body { get; set; }
-        public string Creation_date { get; set; }
+        public DateTime Creation_date { get; set; }
         public string Due_date { get; set; }
         public string Creator { get; set; }
         public string Executor { get; set; }
 
-        public Task(string title, string body, string creation_date, string due_date, string creator, string executor)
+        public Task(string title, string body, DateTime creation_date, string due_date, string creator, string executor)
         {
             Title = title;
             Body = body;
@@ -42,7 +44,7 @@ namespace ITCompany
             var hashCode = 1460635056;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Body);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Creation_date);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(Creation_date);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Due_date);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Creator);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Executor);
@@ -58,6 +60,26 @@ namespace ITCompany
                 $"Due_date: {Due_date}" +
                 $"Creator: {Creator}" +
                 $"Executor: {Executor}";
+        }
+
+        public object Clone()
+        {
+            return new Task(this.Title, this.Body, this.Creation_date, this.Due_date, this.Creator, this.Executor);
+        }
+
+        public void Print()
+        {
+            Console.WriteLine(this.ToString());
+        }
+
+        public void Save()
+        {
+            Console.WriteLine("File saved");
+        }
+
+        public void Restore()
+        {
+            Console.WriteLine("File restored");
         }
     }
 }

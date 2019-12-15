@@ -8,9 +8,9 @@ namespace ITCompany
 {
     class Company
     {
-        private string Name { get; set; }
-        private Manager Ceo { get; set; }
-        private HashSet<Department> Departments { get; set; }
+        public string Name { get; set; }
+        public Manager Ceo { get; set; }
+        public HashSet<Department> Departments { get; set; }
 
         public Company(string name, Manager ceo)
         {

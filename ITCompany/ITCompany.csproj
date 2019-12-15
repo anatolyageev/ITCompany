@@ -43,16 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domen\TaskStatus.cs" />
     <Compile Include="sractures\Company.cs" />
     <Compile Include="sractures\Department.cs" />
     <Compile Include="sractures\Designer.cs" />
+    <Compile Include="sractures\DesignerDepartment.cs" />
+    <Compile Include="sractures\DevaloperDepartment.cs" />
     <Compile Include="sractures\Employee.cs" />
+    <Compile Include="sractures\Intrfaces\IPrintable.cs" />
+    <Compile Include="sractures\Intrfaces\IStorable.cs" />
     <Compile Include="sractures\Manager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domen\Report.cs" />
     <Compile Include="domen\Task.cs" />
+    <Compile Include="sractures\ManagerDepartment.cs" />
+    <Compile Include="sractures\Meeting.cs" />
     <Compile Include="sractures\Programmer.cs" />
+    <Compile Include="sractures\ReportCreationDateComparer.cs" />
+    <Compile Include="sractures\TaskCreationDateComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

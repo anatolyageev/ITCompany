@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    class Department
+   public class Department : IEnumerable
     {
         public string Name { get; set; }
         public Employee[] employees;
@@ -79,6 +80,11 @@ namespace ITCompany
                 }
                 
             }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return employees.GetEnumerator();
         }
     }
 }

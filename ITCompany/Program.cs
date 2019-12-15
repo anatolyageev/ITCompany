@@ -20,6 +20,7 @@ namespace ITCompany
             itDepartment.AddEmployee(programmer1);
             itDepartment.AddEmployee(programmer2);
             manager1.DoWork(manager1);
+            
             programmer1.DoWork(programmer1);
             programmer2.DoWork(programmer1);
             Console.WriteLine(itDepartment);
