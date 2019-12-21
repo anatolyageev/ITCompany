@@ -7,17 +7,39 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    class Task:ICloneable,IPrintable,IStorable
+    public class DueDateComparer: IComparer
+    {
+        public DueDateComparer() { }
+        int IComparer.Compare(object x, object y)
+        {
+            Task t1 = (Task)x;
+            Task t2 = (Task)y;
+            if(t1.Due_date < t2.Due_date)
+            {
+                return -1;
+            }
+            else if (t1.Due_date == t2.Due_date)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
+    }
+
+    class Task:ICloneable,IPrintable,IStorable, IComparable
     {
         
         public string Title { get; set; }
         public string Body { get; set; }
         public DateTime Creation_date { get; set; }
-        public string Due_date { get; set; }
+        public DateTime Due_date { get; set; }
         public string Creator { get; set; }
         public string Executor { get; set; }
 
-        public Task(string title, string body, DateTime creation_date, string due_date, string creator, string executor)
+        public Task(string title, string body, DateTime creation_date, DateTime due_date, string creator, string executor)
         {
             Title = title;
             Body = body;
@@ -45,7 +67,7 @@ namespace ITCompany
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Title);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Body);
             hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(Creation_date);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Due_date);
+            hashCode = hashCode * -1521134295 + EqualityComparer<DateTime>.Default.GetHashCode(Due_date);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Creator);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Executor);
             return hashCode;
@@ -80,6 +102,21 @@ namespace ITCompany
         public void Restore()
         {
             Console.WriteLine("File restored");
+        }
+
+        public int CompareTo(object obj)
+        {
+            Task t = (Task)obj;
+            if(t is Task)
+            {
+                if (this.Creation_date > t.Creation_date)
+                    return 1;
+                else if (this.Creation_date == t.Creation_date)
+                    return 0;
+                else
+                    return -1;
+            }
+            throw new Exception("the object is not of Task type");
         }
     }
 }

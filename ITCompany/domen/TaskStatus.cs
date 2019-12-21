@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ITCompany.domen
 {
-   public enum TaskStatus
+   public enum TaskStatus:byte
     {
         
-        bool completed, set, pending, canceled, suspended, resumed,
+        completed, set, pending, canceled, suspended, resumed,
         delegated
     }
 }

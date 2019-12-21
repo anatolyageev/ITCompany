@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    class Company
+    class Company: IEnumerable
     {
         public string Name { get; set; }
         public Manager Ceo { get; set; }
@@ -33,6 +34,11 @@ namespace ITCompany
             return $"Name:{Name}, " +
                    $"Ceo:{Ceo}," +
                    $"Departments:{Departments}";
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return Departments.GetEnumerator();
         }
     }
 }
