@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    public class DueDateComparer: IComparer
+    public class DueDateComparer: IComparer<Task>
     {
         public DueDateComparer() { }
-        int IComparer.Compare(object x, object y)
+        int IComparer<Task>.Compare(Task x, Task y)
         {
-            Task t1 = (Task)x;
-            Task t2 = (Task)y;
+            Task t1 = x;
+            Task t2 = y;
+            
             if(t1.Due_date < t2.Due_date)
             {
                 return -1;
@@ -99,9 +100,10 @@ namespace ITCompany
             Console.WriteLine("File saved");
         }
 
-        public void Restore()
+        public Task Restore()
         {
             Console.WriteLine("File restored");
+            return
         }
 
         public int CompareTo(object obj)

@@ -15,6 +15,8 @@ namespace ITCompany
             this.Salary = salary;
         }
 
+        public event DelegMeating OnArangeMeeting;
+
         public Manager(string Name, string Position, double Salary, string Department)
         {
             this.Name = Name;
@@ -37,6 +39,11 @@ namespace ITCompany
 
         public void ArrangeMeeting()
         {
+
+            if(OnArangeMeeting != null)
+            {
+                OnArangeMeeting(new Meeting());
+            }
             Console.Write(this.Name + " arrenge meeting.");
         }
 

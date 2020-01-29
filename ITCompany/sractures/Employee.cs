@@ -8,11 +8,16 @@ namespace ITCompany
 {
     public abstract class Employee
     {
+        protected long Id { get; set; }
         protected string Name { get; set; }
         protected string Position { get; set; }
         protected double Salary { get; set; }
         protected string Department { get; set; }
 
+        //void MeDelegMeating EventHandler(Meeting m)
+        //{
+
+        //}
         public abstract void DoWork(Employee e);
         public abstract void MakeReport(Employee e, string title, string body, DateTime ReportDate);
         public abstract void TakeVacation(Employee e, DateTime DateFrom, DateTime DateTo);

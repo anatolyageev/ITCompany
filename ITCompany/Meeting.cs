@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    interface IStorable<T>
+    class Meeting
     {
-        void Save();
-        T Restore();
     }
 }

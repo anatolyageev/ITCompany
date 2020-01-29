@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,12 @@ namespace ITCompany
 {
     class Company: IEnumerable
     {
+        #region Fealds and propertees
         public string Name { get; set; }
         public Manager Ceo { get; set; }
-        public HashSet<Department> Departments { get; set; }
+        public List<Department> Departments { get; set; }
+        #endregion
+
 
         public Company(string name, Manager ceo)
         {
@@ -28,6 +32,18 @@ namespace ITCompany
         {
             Departments.Remove(d);
         }
+
+        #region Indexators
+        public Department this[int index]
+        {
+            get => index >= 0 && index < Departments.Count ? Departments[index] : throw new IndexOutOfRangeException();
+        }
+        public Department this[string name]
+        {
+            get => Departments.Any(e => e.Name == name) ? Departments.Find(e => e.Name == name) : throw new Exception("Object with given criteria is not found");
+        }
+        #endregion
+
 
         public override string ToString()
         {

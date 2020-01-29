@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    interface IStorable<T>
+    class EmployeeStat
     {
-        void Save();
-        T Restore();
+        private long ID;
+        private long employeeId;
+        private DateTime dateIn;
+        private DateTime dateFire;
     }
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    interface IStorable<T>
+    class UserAuthData
     {
-        void Save();
-        T Restore();
+        private long id;
+        private string userName;
+        private string password;
     }
 }

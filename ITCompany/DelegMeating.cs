@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 
 namespace ITCompany
 {
-    interface IStorable<T>
-    {
-        void Save();
-        T Restore();
-    }
+    delegate void DelegMeating(Meeting m);
+
 }

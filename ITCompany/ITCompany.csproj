@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,7 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegMeating.cs" />
     <Compile Include="domen\TaskStatus.cs" />
+    <Compile Include="EmployeeStat.cs" />
+    <Compile Include="Meeting.cs" />
     <Compile Include="sractures\Company.cs" />
     <Compile Include="sractures\Department.cs" />
     <Compile Include="sractures\Designer.cs" />
@@ -62,9 +66,14 @@
     <Compile Include="sractures\Programmer.cs" />
     <Compile Include="sractures\ReportCreationDateComparer.cs" />
     <Compile Include="sractures\TaskCreationDateComparer.cs" />
+    <Compile Include="UserAuthData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sractures\DAL_Controllers\" />
+    <Folder Include="sractures\Domen\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

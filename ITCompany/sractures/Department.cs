@@ -9,6 +9,8 @@ namespace ITCompany
 {
    public class Department : IEnumerable
     {
+
+    
         public string Name { get; set; }
         public Employee[] employees;
         private readonly int sizeOfDepartment;
